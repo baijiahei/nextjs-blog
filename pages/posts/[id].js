@@ -1,9 +1,11 @@
-import Layout from '../../components/layout'
 import { getAllPostIds, getPostData } from '../../lib/posts'
+
+import Layout from '../../components/layout'
 import Date from '../../components/date'
+import Head from 'next/head'
+
 import utilStyles from '../../styles/utils.module.css'
 
-import Head from 'next/head'
 
 
 export default function Post({ postData }) {
@@ -24,6 +26,7 @@ export default function Post({ postData }) {
 }
 
 export async function getStaticProps({ params }) {
+  console.log(params)
   const postData = await getPostData(params.id)
   return {
     props: {
